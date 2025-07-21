@@ -38,10 +38,10 @@ function App() {
       const txReceipt = await tx.wait();
       console.log("Transaction successful:", txReceipt);
       alert("Message set successfully!");
-      setText(""); // Clear input after successful set
+      setText(""); 
     } catch (error) {
       console.error("Error setting message:", error);
-      alert(error.message || "Failed to set message.");
+      // alert(error.message || "Failed to set message.");
     }
   };
 
@@ -69,10 +69,9 @@ return (
         padding: "2rem",
         maxWidth: "400px",
         margin: "0 auto",
-        textAlign: "center",
       }}
     >
-      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
+      <h1 style={{ fontSize: "1.5rem", marginBottom: "1rem", textAlign: "center" }}>
         Set Message on Smart Contract
       </h1>
       <input
@@ -88,7 +87,7 @@ return (
           borderRadius: "4px",
         }}
       />
-      <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+      <div style={{ display: "flex", justifyContent: "center", gap: "0.5rem" }}>
         <button
           onClick={handleSet}
           style={{
@@ -117,12 +116,13 @@ return (
         </button>
       </div>
       {currentMessage && (
-        <p style={{ marginTop: "0.5rem", wordBreak: "break-word" }}>
+        <p style={{ marginTop: "1rem", textAlign: "center", wordBreak: "break-word" }}>
           Current Message: {currentMessage}
         </p>
       )}
     </div>
   );
 }
+
 
 export default App; 
